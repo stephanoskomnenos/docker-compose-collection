@@ -8,7 +8,7 @@ route {
 		hide_ip
 		hide_via
 		probe_resistance
-		upstream socks5://127.0.0.1:XRAY_PORT
+		upstream socks5://127.0.0.1:XRAY_SOCKS_PORT
 	}
 
 	respond "" 200
