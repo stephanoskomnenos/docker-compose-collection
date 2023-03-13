@@ -1,0 +1,15 @@
+
+{
+  "listen": ":HY_PORT",
+  "protocol": "HY_PROTOCOL",
+  "cert": "/opt/cert/CERT_DIR_NAME/CERT_DIR_NAME.crt",
+  "key": "/opt/cert/CERT_DIR_NAME/CERT_DIR_NAME.key",
+  "alpn": "h3",
+  "auth": {
+    "mode": "passwords",
+    "config": ["HY_AUTH_STR"]
+  },
+  "socks5_outbound": {
+    "server": "localhost:XRAY_SOCKS_PORT"
+  }
+}

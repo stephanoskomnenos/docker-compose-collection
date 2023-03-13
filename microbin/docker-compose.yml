@@ -1,0 +1,9 @@
+services:
+  paste:
+    image: danielszabo99/microbin
+    restart: always
+    ports:
+     - "1180:8080"
+    volumes:
+     - ./microbin-data:/app/pasta_data
+    command: ["--highlightsyntax", "--no-file-upload"]

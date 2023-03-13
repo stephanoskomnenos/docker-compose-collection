@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+
+  caddy:
+    image: kwaabot/caddy
+    container_name: caddy
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - /opt/cert:/root/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory
+
+  hysteria:
+    image: tobyxdd/hysteria
+    container_name: hysteria
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./hysteria.json:/etc/hysteria.json
+      - /opt/cert:/opt/cert
+    command: ["server", "--config", "/etc/hysteria.json"]
+
+  xray:
+    image: teddysun/xray
+    container_name: xray
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./xray.json:/etc/xray.json
+    command: ["/usr/bin/xray", "--config", "/etc/xray.json"]
