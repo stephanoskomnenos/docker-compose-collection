@@ -2,7 +2,7 @@
 
 let config = (
     open config.yaml
-    | insert CERT_DIR_NAME ($in.CURRENT_DOMAIN | str replace '\*.' 'wildcard_.')
+    | insert CERT_DIR_NAME ($in.CURRENT_DOMAIN | str replace '^\*\.' 'wildcard_.')
     | transpose key value)
 
 ls *.template
