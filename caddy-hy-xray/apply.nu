@@ -8,7 +8,7 @@ let config = (
 ls *.template
 | get name
 | each { |template_file_name| 
-    let template_file = open --raw $template_file_name
+    let template_file = (open --raw $template_file_name)
     let final_file_name = ($template_file_name | str replace '.template$' '')
     let final_file = (
         $config 
@@ -17,3 +17,5 @@ ls *.template
         })
     $final_file | save -f $final_file_name
 }
+
+echo "Application succeeded."
